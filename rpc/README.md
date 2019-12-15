@@ -1908,6 +1908,7 @@ Send new transaction into transaction pool.
 #### Parameters
 
     transaction - The transaction object, struct reference: https://github.com/nervosnetwork/rfcs/blob/master/rfcs/0019-data-structures/0019-data-structures.md#Transaction
+    outputs_validator - Validates the transaction outputs before entering the tx-pool, an optional string parameter (enum: default | passthrough ), null means using default validator, passthrough means skipping outputs validation
 
 #### Examples
 
@@ -1955,7 +1956,8 @@ echo '{
             ],
             "version": "0x0",
             "witnesses": []
-        }
+        },
+        "passthrough"
     ]
 }' \
 | tr -d '\n' \
